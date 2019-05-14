@@ -1,0 +1,9 @@
+npm init // to create package.json
+
+npm install express --save // to include express
+
+npm install ejs --save // to include ejs
+
+npm install body-parser --save // used to parse req object i.e. req.body
+
+

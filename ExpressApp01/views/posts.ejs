@@ -1,0 +1,21 @@
+<% include partials/header %>
+
+<h1>
+	The Family ...
+</h1>
+
+<% posts.forEach(function(post) { %>
+<li>
+	<%= post.name %> - <strong> <%= post.tag %> </strong>
+</li>
+<% }) %>
+
+<form action ="/addPerson" method="POST">
+	Name: <input type ="text" name ="name">
+	Tag: <input type ="text" name ="tag">
+	<button>
+		Add
+	</button>
+</form>
+
+<% include partials/footer %>
