@@ -10,3 +10,6 @@ npm install body-parser --save // used to parse req object i.e. req.body
 npm i mongoose // mongoose DB
 
 npm i -g nodemon // monitor for npm
+
+npm i request //
+
