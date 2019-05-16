@@ -1,0 +1,20 @@
+<% include partials/header %>
+
+<h1>
+	Testing API endpoints using https://jsonplaceholder.typicode.com/
+</h1>
+
+<% posts.forEach(function(post) { %>
+<li>
+	<strong> <%= post.title %> </strong> - <%= post.body %> (<%= post.userId %>)
+</li>
+<% }) %>
+
+<form action ="/filter" method="POST">
+	User id: <input type ="text" name ="userid">
+	<button>
+		Filter
+	</button>
+</form>
+
+<% include partials/footer %>

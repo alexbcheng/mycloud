@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<% if (text) { %>
+<h1>
+	You've reach the home page of <%= text.toUpperCase() %>
+</h1>
+<% } else { %>
+<h1>
+	This is the root!
+</h1>
+<% } %>
+
+<% include partials/footer %>
