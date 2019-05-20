@@ -11,5 +11,9 @@ npm i mongoose // mongoose DB
 
 npm i -g nodemon // monitor for npm
 
-npm i request //
+npm i request // get or post URL for api end points
 
+rpm i -S request-promise // different syntax - latest ( -S = same as --save)
+
+
+Lesson 283: http://www.omdbapi.com/?s=guardians+of+the+galaxy&apikey=thewdb
