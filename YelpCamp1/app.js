@@ -1,47 +1,70 @@
-const express = require("express");
-const app = express();
-const mongoose = require('mongoose');
-const port = 3000;
-const bodyParser = require("body-parser");
+const 	express = require("express"),
+		app = express(),
+		mongoose = require('mongoose'),
+		bodyParser = require("body-parser"),
+		port = 3000;
 var rp = require('request-promise');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-// mongoose.connect('mongodb+srv://ugatdba:ugatdba01@cluster0-qoqcv.mongodb.net/test?retryWrites=true', {
-// 	useNewUrlParser: true,
-// 	useCreateIndex: true
-// }).then(() => {
-// 	console.log('Connected to Database!');
-// }).catch(err => {
-// 	console.log('Database connection error: ', err.message);
-// });
-// const campsiteSchema = new mongoose.Schema({
-// 	name: String,
-// 	url: String,
-// 	image: String
-// });
-// const campsites = mongoose.model("YelpCamp", campsiteSchema);
-
-var campsites1 = [
-	{name: "Liberty Harbor", url: "www.libertyharborrv.com", image: "http://www.libertyharborrv.com/uploads/tentSite.jpg"	},
-	{name: "Sandy Hook", url: "www.recreation.gov", image: "https://cdn.recreation.gov/public/2018/08/02/15/02/073debbe-e376-41b8-80aa-3e62f6839cd4_1600.jpg" }
-];
+mongoose.connect('mongodb+srv://ugatdba:ugatdba01@cluster0-qoqcv.mongodb.net/YelpCamp?retryWrites=true', {
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('Connected to Database!');
+}).catch(err => {
+	console.log('Database connection error: ', err.message);
+});
+const campsiteSchema = new mongoose.Schema({
+	name: String,
+	url: String,
+	image: String
+});
+// model name here needs to be singular; will be interpreted as plural on the DB collection
+const campsite = mongoose.model("campsite", campsiteSchema);
 
 app.get("/", function(req, res) {
 	res.render("home", {text: null});
 });
 
 app.get("/campgrounds", function(req, res) {
-	res.render("campgrounds", {campsites: campsites1});
+	//res.render("campgrounds", {campsites: campsites1});
+	campsite.find({}, function(err, allcampsites) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("index", {campsites: allcampsites});
+		}
+	});
 });
 app.post("/campgrounds", function(req, res) {
-	campsites1.push({name: req.body.name, url: req.body.url, image: req.body.image});
-	res.redirect("/campgrounds");
+	//campsites1.push({name: req.body.name, url: req.body.url, image: req.body.image});
+	campsite.create({
+		name: req.body.name,
+		url: req.body.url,
+		image: req.body.image
+	}, function(err, obj) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.redirect("/campgrounds");
+			//console.log(obj);
+		}
+	});
 });
 app.get("/campgrounds/new", function(req, res) {
 	res.render("new");
+});
+app.get("/campgrounds/:id", function(req, res) {
+	campsite.findById(req.params.id, function(err, camp) {
+		if (err) {
+			console.log(err);
+		} else {
+			res.render("show", {camp : camp});	
+		}
+	});
 });
 
 app.listen(port, () => {

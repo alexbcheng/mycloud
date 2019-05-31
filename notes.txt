@@ -17,3 +17,15 @@ rpm i -S request-promise // different syntax - latest ( -S = same as --save)
 
 
 Lesson 283: http://www.omdbapi.com/?s=guardians+of+the+galaxy&apikey=thewdb
+
+to update package i.e. mongoose
+
+npm uninstall mongoose ; npm install --save mongoose@5.5.12 (version is on Title of https://mongoosejs.com/)
+
+
+Notes on RESTful routes:
+route name | url | verb | what it does?
+INDEX | /dogs | GET | display a list of all dogs
+NEW | /dogs/new | GET | display a form to accept input
+CREATE | /dogs | POST | add new record to dogs DB
+SHOW | /dogs/:id | GET | shows info about 1 dog
