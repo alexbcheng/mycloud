@@ -1,0 +1,23 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+
+	<div class="ui huge header">
+		<%= entry.title %>
+	</div>
+	<div class="ui top attached">
+		<div class="item">
+			<img class="ui rounded image" src="<%= entry.image %>">
+			<div class="content">
+				<span><%= entry.created.toDateString() %></span>
+			</div>
+			<div class="description">
+				<p><%- entry.body %></p>
+			</div>
+		</div>
+	</div>
+	<a class="positive ui button" href="/blogs/<%= entry._id %>/edit">Edit</a>
+
+</div>
+
+<% include partials/footer %>

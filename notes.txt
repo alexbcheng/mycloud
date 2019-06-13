@@ -13,7 +13,9 @@ npm i -g nodemon // monitor for npm
 
 npm i request // get or post URL for api end points
 
-rpm i -S request-promise // different syntax - latest ( -S = same as --save)
+npm i -S request-promise // different syntax - latest ( -S = same as --save)
+
+npm i -S method-override // override POST methods with PUT
 
 
 Lesson 283: http://www.omdbapi.com/?s=guardians+of+the+galaxy&apikey=thewdb
@@ -25,7 +27,11 @@ npm uninstall mongoose ; npm install --save mongoose@5.5.12 (version is on Title
 
 Notes on RESTful routes:
 route name | url | verb | what it does?
-INDEX | /dogs | GET | display a list of all dogs
-NEW | /dogs/new | GET | display a form to accept input
-CREATE | /dogs | POST | add new record to dogs DB
-SHOW | /dogs/:id | GET | shows info about 1 dog
+INDEX | /{object} | GET | display a list of all {object}
+NEW | /{object}/new | GET | display a form to accept input
+CREATE | /{object} | POST | add new record, then redirect
+SHOW | /{object}/:id | GET | shows info about 1 record
+EDIT | /{object}/:id/edit | GET | display an edit form
+UPDATE | /{object}/:id | PUT | update a record, then redicrect
+DESTROY | /{object}/:id | DELETE | delete a record, then redicrect
+
