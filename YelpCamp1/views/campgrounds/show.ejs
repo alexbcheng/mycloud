@@ -1,15 +1,16 @@
-<% include partials/header %>
+<% include ../partials/header %>
 
 <header class="container jumbotron">
 	<p class="lead"><%= camp.name%></p>
-	<a class="btn btn-secondary" href="javascript:history.back()">Back</a>
+	<a class="btn btn-secondary" href="/campgrounds/">Back</a>
 </header>
 
 <section>
 	<div class="container">
 		<p class="lead"><%= camp.url%></p>
 		<img src="<%= camp.image %>" alt="">
+		<% include ../comments/new %>
 	</div>
 </section>
 
-<% include partials/footer %>
+<% include ../partials/footer %>
