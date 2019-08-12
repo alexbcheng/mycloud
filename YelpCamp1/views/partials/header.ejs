@@ -9,12 +9,16 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 	
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">	
 	<style>
 		.ctop {
 			margin-top: 4rem;
 		}
 		.mb-2-5 {
 			margin-bottom: 2.5rem;
+		}
+		.comments {
+			background: #f2f1f0;
 		}
 	</style>
 </head>
@@ -29,9 +33,13 @@
   		</button>
 		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto ">
+				<% if (!currentUser) { %>
+				<li class="nav-item "><a class="nav-link" href="/login">Login</a></li>
+				<% } else { %>
+				<li class="navbar-text">Hello, <%= currentUser.username %> <i class="far fa-user"> </i></li>
+				<li class="nav-item "><a class="nav-link" href="/logout">Logout</a></li>
+				<% } %>
 				<li class="nav-item "><a class="nav-link" href="#">About us</a></li>
-				<li class="nav-item "><a class="nav-link" href="#">Profile</a></li>
-				<li class="nav-item "><a class="nav-link" href="#">Logout</a></li>
 			</ul>
 		</div>
 	</div>

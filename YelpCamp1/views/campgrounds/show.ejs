@@ -1,15 +1,28 @@
 <% include ../partials/header %>
 
 <header class="container jumbotron">
-	<p class="lead"><%= camp.name%></p>
-	<a class="btn btn-secondary" href="/campgrounds/">Back</a>
+	
 </header>
 
 <section>
 	<div class="container">
-		<p class="lead"><%= camp.url%></p>
-		<img src="<%= camp.image %>" alt="">
-		<% include ../comments/new %>
+		<div class="row">
+			<div class="col-md-2">
+				<a class="btn" href="/campgrounds/"><i class="fas fa-arrow-circle-left fa-3x"></i></a>
+			</div>
+			<div class="col-md-10">
+				<div class="card">
+					<img class="img-fluid" src="<%= camp.image %>" alt="">
+					<div class="card-body">
+						<a class="lead" target="_blank" href="<%= camp.url%>"><%= camp.name%></a>
+						<p>
+							Description of the Camp goes here...
+						</p>
+					</div>
+				</div>
+				<% include ../comments/new %>
+			</div>
+		</div>
 	</div>
 </section>
 
