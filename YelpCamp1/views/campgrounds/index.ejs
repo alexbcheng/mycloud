@@ -1,10 +1,10 @@
 <% include ../partials/header %>
 
-<header class="container jumbotron">
+<div class="container ">
 	<p class="lead">Select from our hand-picked campgrounds!</p>
 	<a class="btn btn-primary" href="/campgrounds/new">Add New</a>
 	<a class="btn btn-secondary" href="javascript:history.back()">Back</a>
-</header>
+</div>
 
 <section>
 	<div class="container">
@@ -15,8 +15,8 @@
 					<img src="<%= campsite.image %>" alt="" class="card-img-top">
                     <div class="card-body">
 						<h5 class="card-title"><%= campsite.name %></h5>
-						<p class="card-text"><%= campsite.url %></p>
-						<a href="https://<%= campsite.url %>" class="btn btn-outline-success btn-sm" target="_blank">Go!</a>
+						<p class="card-text" id="card-07"><%= campsite.desc %></p>
+						<a href="<%= campsite.url %>" class="btn btn-outline-success btn-sm" target="_blank">Go!</a>
 						<a href="/campgrounds/<%= campsite._id %>" class="btn btn-outline-info btn-sm"><i class="fas fa-info"></i></a>
                     </div>
                 </div>

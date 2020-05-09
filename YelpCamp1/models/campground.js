@@ -2,8 +2,15 @@ const mongoose = require('mongoose');
 
 const campsiteSchema = new mongoose.Schema({
 	name: String,
+	desc: String,
 	url: String,
 	image: String,
+	author: {
+		id: {type: mongoose.Schema.Types.ObjectId,
+			 ref: "User"
+			},
+		username: String
+	},
 	comments: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

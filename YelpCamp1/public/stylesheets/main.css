@@ -1,0 +1,13 @@
+.img-fluid{
+	width : 10rem;
+	height: 10rem;
+}
+
+#card-07 {
+	font-size: 0.7rem;
+}
+
+.delete-form {
+	display: inline;
+}
+

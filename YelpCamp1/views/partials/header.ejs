@@ -23,11 +23,22 @@
 	</style>
 </head>
 <body>
-<nav class="navbar navbar-dark fixed-top bg-dark navbar-expand-md">
+<% if (error && error.length > 0) { %>
+	<nav class="navbar-header bg-danger">
+		<small><%= error %></small>
+	</nav>
+<% } %>
+<% if (success && success.length > 0) { %>
+	<div class="navbar-header bg-success">
+		<small><%= success %></small>
+	</div>
+<% } %>
+
+<nav class="navbar navbar-dark  bg-dark navbar-expand-md">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a href="/" class="navbar-brand"><i class="fas fa-users mr-2"></i>Welcome to Yelp Camp!</a>
-		</div>
+		</div>		
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
   		</button>
