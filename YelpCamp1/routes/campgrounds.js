@@ -17,6 +17,7 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 	//campsites1.push({name: req.body.name, url: req.body.url, image: req.body.image});
 	campsite.create({
 		name: req.body.name,
+		price: req.body.price,
 		desc: req.body.desc,
 		url: req.body.url,
 		image: req.body.image,
@@ -59,6 +60,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) 
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res) {
 	campsite.findByIdAndUpdate(req.params.id, {
 		name: req.body.name,
+		price: req.body.price,
 		desc: req.body.desc,
 		url: req.body.url,
 		image: req.body.image,

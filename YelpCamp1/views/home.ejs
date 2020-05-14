@@ -1,9 +1,45 @@
-<% include partials/header %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Yelp Camp!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<h1>
-	Welcome to Yelp Camp! (c) by Alex Cheng
-</h1>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
-<a href	='/campgrounds'>Click here to see all Campgrounds</a>
+		<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/landing.css">
+		
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+    </head>
+    <body>
+
+<% if (error && error.length > 0) { %>
+	<nav class="navbar-header bg-danger">
+		<small><%= error %></small>
+	</nav>
+<% } %>
+<% if (success && success.length > 0) { %>
+	<div class="navbar-header bg-success">
+		<small><%= success %></small>
+	</div>
+<% } %>
+
+    <div id="landing-header">
+        <h1>Welcome to YelpCamp!</h1>
+        <a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+    </div>
+
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
 
 <% include partials/footer %>
