@@ -48,14 +48,15 @@ app.use("/campgrounds", campgroundRoutes);
 mongoose.connect('mongodb+srv://ugatdba:ugatdba01@cluster0-qoqcv.mongodb.net/YelpCamp?retryWrites=true', {
 	useNewUrlParser: true,
 	useCreateIndex: true,
-	useFindAndModify: false
+	useFindAndModify: false,
+	useUnifiedTopology: true
 }).then(() => {
 	console.log('Connected to Database!');
 }).catch(err => {
 	console.log('Database connection error: ', err.message);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
 	console.log('server started. listening on port '+port);
 });
 
